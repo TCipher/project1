@@ -1,0 +1,153 @@
+
+body{
+	color:grey;
+}
+
+/*div{
+	border:1px solid red;
+}*/
+.line{
+border-bottom:1px dotted white;
+}
+
+ul li a{
+	
+	text-decoration:none;
+	color:white;
+	
+}
+ul li a:hover{
+	color:red;
+}
+h3{
+	font-family:
+}
+.sidebar{
+	width:250px;
+	color:white !important;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.modal-custom{
+	
+	width:500px;
+	margin-left:200px
+}
+.picture_frame{
+
+	border:1px solid black;
+	border-radius:50px 50px;
+	width:100px;
+	height:100px;
+	margin:auto;
+	margin-top:20px;
+	background-color:white;
+	/*background-image:url("../images/avater1.png");*/ 
+
+	}
+
+.fix{
+	position:relative;
+	top:-15px;
+	right:0px;
+	left:70px;
+	bottom:0px;
+	border:1px solid black;
+	border-radius:50px 50px;
+	width:20px;
+	height:20px; 
+	background-color:lightblue;
+
+}
+
+.fix2{
+position:relative;
+left:2px;
+right:0px;
+bottom:0px;
+top:-2px;
+}
+
+#div2:hover{
+	background-color:#17a2b8;
+	width:250px; 
+	text-decoration-color: white;
+	color:black;
+
+}
+
+#div3:hover{
+	background-color:#28a745;
+	width:250px; 
+	text-decoration-color: white;
+
+}
+#div4:hover{
+	background-color:#dc3545;
+	width:250px; 
+	text-decoration-color: white;
+
+}
+
+#div5:hover{
+	background-color:#ffc107;
+	width:250px; 
+	text-decoration-color: white;
+
+}
+.hov_color  a:hover{
+color:black
+}
+#bimg{
+background-image:url("../images/graph.jpg");
+
+}
+.approv{
+	width:100px;
+	height: 20px;
+}
+
+.thbg{
+	background-color: lightgrey;
+}
+
+
+.expnd:hover:after{
+  color:#fff;
+  content:attr(flip);
+  font-size:5px;
+}
+
+
+.thead-design{
+color:white;
+background-color:#343a40;
+}
+h5,h1,h2,h4,{
+ background-color:#343a40;
+ color:white;
+ border-radius:5px;
+ font-family:'Roboto', sans-serif; 
+}
+h3{
+	font-family:'Roboto Slab', serif; 
+}
+.fa-search-location{
+	font-size:16px;
+	padding:0px; 
+ }
+ .btn-cust1{
+ 	width:40px !important;
+ 	height:27px !important;
+ 	position:relative;
+ 	left:5px; 
+ }
+ .btn-cust2{
+ 	width:40px !important;
+ 	height:27px !important;
+ 	position:absolute;
+ 	rigt:5px; 
+ }
