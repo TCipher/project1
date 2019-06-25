@@ -30,13 +30,13 @@ $products = $productobj->fetchAllProducts();
 <div class="container-fluid">
 	<div class="row">
 
-		<div class="col-md-12 mt-4 d-flex justify-content-end">
+		<div class="col-md-12 mt-4 d-flex justify-content-end ">
 			<form class="form-inline">
 		      <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
 		    </form>
-			<a href ="" class="btn btn-info expnd mr-2" flip="Manage Product"><i class="fas fa-tasks text-white"></i></i></a>
+			<a href ="" class="btn btn-info  mr-2" ><i class="fas fa-tasks text-white"></i></i></a>
 
-			<a href ="addproduct.php" class="btn btn-info expnd" flip="New Product"><i class="fas fa-plus text-white"></i></a>
+			<a href ="addproduct.php" class="btn btn-info expnd" flip="Add Product"><i class="fas fa-plus text-white"></i></a>
 
 		</div>
 		<h1 class="mt-2 badge bg-info text-white">PRODUCT VIEW</h1>

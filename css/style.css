@@ -118,8 +118,9 @@ background-image:url("../images/graph.jpg");
 .expnd:hover:after{
   color:#fff;
   content:attr(flip);
-  font-size:5px;
+  font-size:15px;
 }
+
 
 
 .thead-design{

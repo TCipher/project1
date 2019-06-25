@@ -367,5 +367,23 @@ class Customer{
 			}
 			return $row;
 		}
+		//fetch products randomly from the products table
+	public function productrand(){
+	//writr query
+		$prodsql = "SELECT * from products order by rand() limit 12";
+	
+			$row= array();
+		//execute the query
+		$result = $this->proddb->dbconect->query($prodsql);
+
+		if($this->proddb->dbconect->affected_rows > 0){
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+		}
+		else{
+		//	echo "Error: ".$this->dbobj->dbcon->error;
+			echo "<div>No Record Found</div>";
+		}
+		return $row;
+	}
 }
 ?>

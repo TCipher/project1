@@ -25,8 +25,7 @@
 			 
 			 <style type="text/css" rel= stylesheet>
 			 <!-- div{ -->
-				<!-- border:1px solid red;  -->
-			 <!-- } -->
+				<!-- border:1px
 			
 			.modal h6{
 			 background-color:#343a40;
