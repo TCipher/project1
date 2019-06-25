@@ -148,7 +148,7 @@ $regerror = array();
   			<div class="form-group row mt-2">
     				<label class="col-sm-2  offset:4 col-form-label bg-primary text-white">Product Description</label>
     			<div class="col-sm-6">
-      				<textarea type="text" class="form-control" id="productdsc" placeholder="Description" name="Product_dsc"><?php if(isset($_POST['productdsc'])){echo $_POST['productdsc'];} ?></textarea> 
+      				<textarea type="text" class="form-control" id="productdsc" name="productdsc"><?php if(isset($_POST['productdsc'])){echo $_POST['productdsc'];} ?></textarea> 
     			</div>
           <?php 
                 if(isset($regerror['productdsc'])){

@@ -92,7 +92,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 			</div>
 			<div class=" form-group bg-danger text-white col-md-5 offset-1 text-center mb-5">
 					<img src="icons/user.png" alt="google">
-					<a href="" class="nounderline text-white">Create A new Accout</a>
+					<a href="register.php" class="nounderline text-white">Create A new Accout</a>
 				</div>
 			</div>
 		</div>

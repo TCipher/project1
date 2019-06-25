@@ -30,7 +30,7 @@ $regerror = array();
 		$sellingprice = $_POST['sellingprice'];
 		$categoryid = $_POST['categoryid'];
 		$manufacturerid = $_POST['manufacturerid'];
-		 $userid = $_REQUEST['productid'];//from query string
+		$productid = $_REQUEST['productid'];//from query string
             
 
 		
@@ -99,17 +99,19 @@ $regerror = array();
 				//create user object
 			$product_info_obj = new Products;
 			$productinfo = $product_info_obj->fetchProductDetails($_GET['productid']);
+					//var_dump($productinfo);
+
 
 		}
 			 ?>
 		<div class="mt-2">
-			<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])."?productid=".$productinfo['productid']; ?>" enctype="multipart/form-data">
+			<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])."?productid=".$productinfo['Product_id']; ?>" enctype="multipart/form-data">
 				
 			<div class="form-group row">
     				<label class="col-sm-2  offset:4 col-form-label bg-primary text-white">Product Name</label>
     			<div class="col-sm-6">
-      				<input type="text" class="form-control" id="productname" placeholder="product name" name="productname" value="<?php if(isset($_POST['productname'])){
-                echo $_POST['productname'];
+      				<input type="text" class="form-control" id="productname" placeholder="product name" name="productname" value="<?php if(isset($productinfo['Product_name'])){
+                echo $productinfo['Product_name'];
               } ?>">
     			</div>
           <?php 
@@ -121,8 +123,8 @@ $regerror = array();
   			<div class="form-group row mt-2">
     				<label class="col-sm-2  offset:4 col-form-label bg-primary text-white">Quantity</label>
     			<div class="col-sm-6">
-      				<input type="text" class="form-control" id="productunit" placeholder="enter quantity" name="productunit" value="<?php if(isset($_POST['productunit'])){
-                echo $_POST['productunit'];
+      				<input type="text" class="form-control" id="productunit" placeholder="enter quantity" name="productunit" value="<?php if(isset($productinfo['Product_unit'])){
+                echo $productinfo['Product_unit'];
               } ?>">
     			</div>
           <?php 
@@ -134,8 +136,8 @@ $regerror = array();
   			<div class="form-group row mt-2">
     				<label class="col-sm-2  offset:4 col-form-label bg-primary text-white">Unit Price</label>
     			<div class="col-sm-6">
-      				<input type="text" class="form-control" id="productprice" placeholder="enter price" name="productprice" value="<?php if(isset($_POST['productprice'])){
-                echo $_POST['productprice'];
+      				<input type="text" class="form-control" id="productprice" placeholder="enter price" name="productprice" value="<?php if(isset($productinfo['Product_price'])){
+                echo $productinfo['Product_price'];
               } ?>">
     			</div>
           <?php 
@@ -156,7 +158,8 @@ $regerror = array();
   			<div class="form-group row mt-2">
     				<label class="col-sm-2  offset:4 col-form-label bg-primary text-white">Product Description</label>
     			<div class="col-sm-6">
-      				<textarea type="text" class="form-control" id="productdsc" placeholder="Description" name="Product_dsc"><?php if(isset($_POST['productdsc'])){echo $_POST['productdsc'];} ?></textarea> 
+      				<textarea type="text" class="form-control" id="productdsc" name="productdsc">
+      					<?php if(isset($productinfo['Product_dsc'])){echo $productinfo['Product_dsc'];} ?></textarea> 
     			</div>
           <?php 
                 if(isset($regerror['productdsc'])){
@@ -168,8 +171,8 @@ $regerror = array();
   			<div class="form-group row mt-2">
     				<label class="col-sm-2  offset:4 col-form-label bg-primary text-white">Selling Price</label>
     			<div class="col-sm-6">
-      				<input type="text" class="form-control" id="sellingprice" placeholder="selling price" name="sellingprice" value="<?php if(isset($_POST['sellingprice'])){
-                echo $_POST['sellingprice'];
+      				<input type="text" class="form-control" id="sellingprice" placeholder="selling price" name="sellingprice" value="<?php if(isset($productinfo['selling_price'])){
+                echo $productinfo['selling_price'];
               } ?>">
     			</div>
           <?php
@@ -192,7 +195,7 @@ $regerror = array();
 			        foreach ($category as $key => $value):
 			      			$categoryid = $value['category_id'];
 			      			$categoryname =$value['category_name'];
-			      			if($_POST['categoryid']==$categoryid){
+			      			if($productinfo['category_id']==$categoryid){
 			      				echo "<option value=\"$categoryid\" selected='selected'>$categoryname</option>";
 			      			}else{
 			      			echo "<option value=\"$categoryid\">$categoryname</option>";
@@ -220,7 +223,7 @@ $regerror = array();
 			        foreach ($manufacturer as $key => $value):
 			      			$manufacturerid = $value['manufacturer_id'];
 			      			$manufacturername =$value['manufacturer_name'];
-			      			if($_POST['manufacturerid']==$manufacturerid){
+			      			if($productinfo['manufacturer_id']==$manufacturerid){
 			      				echo "<option value=\"$manufacturerid\" selected='selected'>$manufacturername</option>";
 			      			}else{
 			      			echo "<option value=\"$manufacturerid\">$manufacturername</option>";
@@ -239,8 +242,8 @@ $regerror = array();
   			<div class="form-group row mt-2">
     				<label class="col-sm-2  offset:4 col-form-label bg-primary text-white">Product Image</label>
     			<div class="col-sm-6">
-      				<input type="file" class="form-control" id="productimg" placeholder="product name" name="productimg" value="<?php if(isset($_POST['productimg'])){
-                echo $_POST['productimg'];
+      				<input type="file" class="form-control" id="productimg" name="productimg" value="<?php if(isset($productinfo['product_image'])){
+                echo $productinfo['product_image'];
               } ?>">
               
     			</div>

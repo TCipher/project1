@@ -74,7 +74,7 @@ class Customer{
 			$_SESSION['email'] = $email;
 
 			//redirect to home page
-			header("Location: http://localhost/cipher/store.php");
+			header("Location: http://localhost/cipher/printers.php");
 			exit;
 
 		}else{
@@ -149,7 +149,7 @@ class Customer{
 			$_SESSION['lastname'] = $row['lastname'];
 			
 			//redirect to dashboard
-			header("Location: http://localhost/cipher/store.php");
+			header("Location: http://localhost/cipher/index.php");
 			exit;
 		}else{
 			//display invalid login credentials
@@ -308,10 +308,11 @@ class Customer{
 				return $row;
 			}
 
-			public function updateProduct($manufacturerid,$productname,$productunit,$productprice,$productdsc,$sellingprice,$categoryid,$productid){
+			public function updateProduct($productname,$productunit,$productprice,$productdsc,$sellingprice,$categoryid,$productid){
   	//query to update a role based on the role title
-  	$sequel = "UPDATE products SET manufactuters = '$manufacturerid', Product_name = '$productname', Product_unit = '$productunit', Product_price = '$productprice', Product_dsc = '$productdsc', selling_price = '$sellingprice', category_id ='$categoryid' WHERE Product_id = '$productid' ";
-  
+  	$sequel = "UPDATE products SET Product_name = '$productname', Product_unit = '$productunit', Product_price = '$productprice', Product_dsc = '$productdsc', selling_price = '$sellingprice', category_id ='$categoryid' WHERE Product_id = '$productid' ";
+  	var_dump($sequel);
+  	exit;
 
   				//execute myquery
 				$this->proddb->dbconect->query($sequel);
@@ -338,5 +339,33 @@ class Customer{
 	}
 
 	}
+	public function addcategory($category){
+			$catquery = "INSERT INTO category(category_name)VALUES('$category')";
+		 	if($this->proddb->dbconect->query($catquery)===true){
+
+		echo  "<div class='text-success animated bounce d-flex justify-content-center text-bold'>".$category." Add Successfully!!</div>";
+
+		
+		}else{
+			echo "Error ".$this->proddb->dbconect->error;
+		}
+
+	} 
+
+	//function to fetch all the caregory from the database
+	public function fetchCategory(){
+		//write the query to select all users with their role title
+			$catdb = "SELECT * FROM category";
+
+
+			//check if the query() runs the sql statement
+			if($result = $this->proddb->dbconect->query($catdb)){
+
+				$row = $result->fetch_all(MYSQLI_ASSOC);
+			}else{
+				echo "Error: ".$this->proddb->dbconect->error;
+			}
+			return $row;
+		}
 }
 ?>

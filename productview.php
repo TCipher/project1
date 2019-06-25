@@ -29,14 +29,14 @@ $products = $productobj->fetchAllProducts();
 			<form class="form-inline">
 		      <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
 		    </form>
-			<a href ="" class="btn btn-info expnd mr-2" flip="Manage Product"><i class="fas fa-tasks text-white"></i></i></a>
+			<a href ="manageproduct.php" class="btn btn-info expnd mr-2" flip="Manage Product"><i class="fas fa-tasks text-white"></i></i></a>
 
 			<a href ="addproduct.php" class="btn btn-info expnd" flip="New Product"><i class="fas fa-plus text-white"></i></a>
 
 		</div>
 		
-			<table class="table table-bordered table-striped table-hover bg-info ">
-				<thead class="thead-design text-white">
+			<table class="table table-bordered table-striped table-hover bg-info text-white ">
+				<thead class="thead-design">
 					<th>#</th>
 					<th>Thumbnail</th>
 					<th>Product Name</th>

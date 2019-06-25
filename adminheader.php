@@ -2,6 +2,7 @@
 <?php
 session_start();
 include_once('Cipherclass.php');
+$pagetitle = "Admin Page"
  ?>
 	<html lang="eng">
 		<!-- head section -->

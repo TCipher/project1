@@ -1,6 +1,7 @@
 <?php 
 session_start();
-
+include_once('Cipherclass.php');
+$pagetitle = "Home";
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -21,7 +22,7 @@ session_start();
 		<!-- fontawsoe -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">				
 		<!--page title -->
-		<title>Cipher Stores</title>
+		<title><?php echo $pagetitle; ?></title>
 
 </head>
 
@@ -39,28 +40,32 @@ session_start();
 					</a>
 			 	 </li>
 			  <li>
-					<div class="input-container col-sm">
-			              <div id="">
-							<select id="categorydropdown" class="select-drop">
-								<option value="">All</option>
-								<option value="">Monitors</option>
-								<option value="">Laptops</option>
-								<option value="">Printers</option>
-								<option value="">Chargers</option>
-								<option value="">External Drive</option>
-								<option value="">Battery</option>
-								<option value="">LCD</option>
-								<option value="">Softwares</option>
-								<option value="">Printers</option>
-								<option value="">USB</option>
-								<option value="">PC WorkStaions</option>
-								<option value="">UPS</option>
-								<option value="">Keybords</option>
-								<option value="">Mice</option>
+			  	<!--instantiate the product class and  create object refrencing the fetch category method-->
+			  	<?php
+			  		$prodobj = new Products;
+			  		$catobj = $prodobj->fetchCategory();
 
+			  	?>
+
+					<div class="input-container col-sm">
+			              <div>
+							<select id="catid" name="catid" style="height:36px;">
+								<option value="">All</option>
+								<!--using foreach to loop through and display the category-->
+								<?php
+									foreach ($catobj as $key => $value) {
+										$catid = $value['category_id'];
+										$catname = $value['category_name'];
+										if ($_POST['catid']==$catid) {
+											echo "<option value=\"$catid\" selected = 'selected'>$catname</option>";
+										}else{
+										echo "<option value=\"$catid\">$catname</option>";
+									}
+								}
+								?>
 							</select>
 						  </div>  							
-						<input  type="text" name="searchbtn" class="col-md-12">
+						<input  type="text" name="searchbtn" class="col-sm-12">
 						 <a href="#" id="serch_btn"><i class="fas fa-search icon"></i></a>
 					</div>
 		</li>
@@ -85,7 +90,7 @@ session_start();
 		  </li>		  
 		</ul>
 		<div>
-			<span class="badge badge-pills badge-light bg-light">
+			<span class="badge badge-pills text-light">
 							<?php if(isset($_SESSION['myuserid'])){
 							echo $_SESSION['lastname'];
 								}

@@ -4,7 +4,7 @@
 	
 					<ul class="navbar-nav bg-dark pl-4">
 											<?php if(isset($_SESSION['myuserid'])){
-							echo "Welcome ".$_SESSION['lastname'];
+							echo "You Logged In as ".$_SESSION['lastname'];
 								}
 							?>	
 						<div class="picture_frame">
@@ -29,14 +29,14 @@
 						<span class="line"></span>
 
 						<li class="nav-item">
-							<a href="" class="nav-link">
+							<a href="addcategory.php" class="nav-link">
 								<i class="material-icons icon">category</i>
 								<span class="text">Category</span>
 							</a>
 						</li>
 						<span class="line"></span>
 						<li class="nav-item">
-							<a href="product_simu.php" target="_parent" class="nav-link">
+							<a href="productview.php" target="_parent" class="nav-link">
 								<i class="material-icons icon">view_list</i>
 								<span class="text">Products</span>
 							</a>
