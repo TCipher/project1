@@ -2,10 +2,16 @@
 include_once('Cipherclass.php');
 //greate object of product class
 $prodobj = new Products;
-$prodinfo = $prodobj->productrand();
 
+if(isset($_POST['mycatid'])){
 
-foreach ($prodinfo as $key => $value) {
+		$prodinfo = $prodobj->getSpecificCategory($_POST['mycatid']);
+	}else{
+		$prodinfo = $prodobj-> productrand();
+	}
+
+	if($prodinfo){
+	foreach ($prodinfo as $key => $value) {
 
 ?>	
 
@@ -33,6 +39,6 @@ foreach ($prodinfo as $key => $value) {
 						</div>
 
 <?php	
-}
-
+		}
+	}
 ?>

@@ -31,6 +31,7 @@ $pagetitle = "Admin Page"
 
 			 <!-- Google fonts-->
 			 <link href="https://fonts.googleapis.com/css?family=Monoton|Oswald&display=swap" rel="stylesheet">
+			 <link href="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.js" rel="stylesheet">
 			
 			 <!-- website title -->
 			 <title><?php echo $pagetitle ?></title>

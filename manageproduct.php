@@ -28,18 +28,12 @@ $products = $productobj->fetchAllProducts();
 
 ?>
 <div class="container-fluid">
-	<div class="row">
-
-		<div class="col-md-12 mt-4 d-flex justify-content-end ">
-			<form class="form-inline">
+	<div class="row mt-4">
+			
+		<span class="mt-2 badge bg-info text-white mr-3">PRODUCT VIEW</span>
+		<form class="form-inline">
 		      <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
 		    </form>
-			<a href ="" class="btn btn-info  mr-2" ><i class="fas fa-tasks text-white"></i></i></a>
-
-			<a href ="addproduct.php" class="btn btn-info expnd" flip="Add Product"><i class="fas fa-plus text-white"></i></a>
-
-		</div>
-		<h1 class="mt-2 badge bg-info text-white">PRODUCT VIEW</h1>
 			<table class="table table-bordered table-striped table-hover bg-light display ">
 				<thead class="thead-design text-white">
 					<th>#</th>
@@ -69,12 +63,7 @@ $products = $productobj->fetchAllProducts();
 							<td><?php echo $value['category_name']; ?></td>
 							<td><?php echo $value['date_of_purchase']; ?></td>
 							<td><?php echo $value['manufacturer_name']; ?></td>
-							<!-- <td>
-								<a href="editproduct.php?productid=<?php echo $value['Product_id']; ?>"><i class="far fa-edit" data-toggle="tooltip" data-placement="bottom" title="Edit">
-						    		</i></a>
-	    					<a href="deleteproduct.php?productid=<?php echo $value['product_id']; ?>&name=<?php echo $value['product_name']; ?>">Delete</a>
-
-							</td> -->
+						
 							
  							<td style="color:red">
 						    	<button type="button" class="btn btn-warning text-white">

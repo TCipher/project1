@@ -2,7 +2,7 @@
 session_start();
 session_destroy();
 
-header("Location: http://localhost/cipher/store.php");
+header("Location: http://localhost/cipher/index.php");
 exit;
 
 ?>

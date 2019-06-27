@@ -1,5 +1,7 @@
-<?php 
+<?php
+ob_start(); 
 session_start();
+include_once('indexheader.php');
 include_once('Cipherclass.php');
 $pagetitle = "Home";
 ?>
@@ -22,7 +24,7 @@ $pagetitle = "Home";
 		<!-- fontawsoe -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">				
 		<!--page title -->
-		<title><?php echo $pagetitle; ?></title>
+		<title><?php echo $pagetitle;?></title>
 
 </head>
 
@@ -39,36 +41,34 @@ $pagetitle = "Home";
 					   	Home <span class="sr-only">(current)</span>
 					</a>
 			 	 </li>
-			  <li>
+			  
 			  	<!--instantiate the product class and  create object refrencing the fetch category method-->
 			  	<?php
 			  		$prodobj = new Products;
-			  		$catobj = $prodobj->fetchCategory();
-
-			  	?>
-
+			  		$catobj = $prodobj->fetchCategory();?>
 					<div class="input-container col-sm">
 			              <div>
 							<select id="catid" name="catid" style="height:36px;">
 								<option value="">All</option>
-								<!--using foreach to loop through and display the category-->
 								<?php
+								//looping through using foreach
 									foreach ($catobj as $key => $value) {
 										$catid = $value['category_id'];
 										$catname = $value['category_name'];
-										if ($_POST['catid']==$catid) {
+										if ($_POST['catid']==$catid){
+
 											echo "<option value=\"$catid\" selected = 'selected'>$catname</option>";
 										}else{
 										echo "<option value=\"$catid\">$catname</option>";
 									}
 								}
 								?>
+
 							</select>
 						  </div>  							
 						<input  type="text" name="searchbtn" class="col-sm-12">
 						 <a href="#" id="serch_btn"><i class="fas fa-search icon"></i></a>
 					</div>
-		</li>
 		</div>	
 		<ul class="navbar-nav navbar-right">
 			<li class="nav-item">

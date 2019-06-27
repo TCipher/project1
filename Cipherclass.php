@@ -74,7 +74,7 @@ class Customer{
 			$_SESSION['email'] = $email;
 
 			//redirect to home page
-			header("Location: http://localhost/cipher/printers.php");
+			header("Location: http://localhost/cipher/index.php");
 			exit;
 
 		}else{
@@ -385,5 +385,24 @@ class Customer{
 		}
 		return $row;
 	}
+	//fetch 12 professional randomly from users table
+	public function getSpecificCategory($category){
+	//writr query
+		$sql = "SELECT products.*, category.* FROM products LEFT JOIN category ON products.category_id=category.category_id WHERE category.category_id='$category' order by category.category_id limit 12";
+		var_dump($sql);	
+				//$row= array();
+
+				//execute the query
+		$result = $this->proddb->dbconect->query($sql);
+
+		if($this->proddb->dbconect->affected_rows>0){
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+		}else{
+		//	echo "Error: ".$this->dbobj->dbcon->error;
+			echo "<div class='alert alert-info'>No Record Found</div>";
+		}
+		return $row;
+	}
+
 }
 ?>
