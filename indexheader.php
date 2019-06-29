@@ -26,6 +26,10 @@ $pagetitle = "Home";
 		<!--page title -->
 		<title><?php echo $pagetitle;?></title>
 
+		<style type="text/css">
+	
+		</style>
+
 </head>
 
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,7 +37,8 @@ $pagetitle = "Home";
 		   <button class="navbar-toggler" type="button" data-toggle="collapse" 	data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 	  		</button>
-	  		<div class="collapse navbar-collapse" id="navbarText">
+	  		<div class="row collapse navbar-collapse" id="navbarText">
+	  			<div class="col-sm-2">
 				<ul class=" nav navbar-nav">
 		  		<li class="nav-item active">
 					 <a class="nav-link" href="#">
@@ -41,14 +46,15 @@ $pagetitle = "Home";
 					   	Home <span class="sr-only">(current)</span>
 					</a>
 			 	 </li>
+			 	</div>
 			  
 			  	<!--instantiate the product class and  create object refrencing the fetch category method-->
 			  	<?php
 			  		$prodobj = new Products;
 			  		$catobj = $prodobj->fetchCategory();?>
-					<div class="input-container col-sm">
-			              <div>
-							<select id="catid" name="catid" style="height:36px;">
+					<div class="col-sm-2">
+			              
+							<select id="catid" name="catid">
 								<option value="">All</option>
 								<?php
 								//looping through using foreach
@@ -64,9 +70,10 @@ $pagetitle = "Home";
 								}
 								?>
 
-							</select>
-						  </div>  							
-						<input  type="text" name="searchbtn" class="col-sm-12">
+							</select>  
+							</div>	
+						<div class="col-sm-8">						
+						<input  type="text" name="searchbtn" class="col-sm-10">
 						 <a href="#" id="serch_btn"><i class="fas fa-search icon"></i></a>
 					</div>
 		</div>	

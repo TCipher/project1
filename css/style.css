@@ -152,3 +152,20 @@ h3{
  	position:absolute;
  	rigt:5px; 
  }
+ .pages {
+    padding: 10px 14px;
+    color: #000000;
+    border-radius: 50%;
+    background: #CCC;
+    text-decoration: none;
+    margin: 0px 6px;
+    font-size: 0.9em;
+}
+.current {
+    padding: 10px 14px;
+    color: #ffffff;
+    background: #73AD21;
+    text-decoration: none;
+    border-radius: 50%;
+    margin: 0px 6px;
+}

@@ -9,13 +9,13 @@
 				 //begins suinfo.php
 				 
 				//ends page subinfo.php
-				include_once('pagesubinfo.php');
+			
 				//ends page subinfo.php
 
-
+				include_once('indexdisplay.php');
 				//begins indexdisplay.php
 
-				include_once('indexdisplay.php');?>
+				?>
 				
 				</div>
 			

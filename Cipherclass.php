@@ -385,12 +385,12 @@ class Customer{
 		}
 		return $row;
 	}
-	//fetch 12 professional randomly from users table
+	//fetch 12 product randomly from users table
 	public function getSpecificCategory($category){
 	//writr query
 		$sql = "SELECT products.*, category.* FROM products LEFT JOIN category ON products.category_id=category.category_id WHERE category.category_id='$category' order by category.category_id limit 12";
-		var_dump($sql);	
-				//$row= array();
+
+				$row= array();
 
 				//execute the query
 		$result = $this->proddb->dbconect->query($sql);
@@ -404,5 +404,58 @@ class Customer{
 		return $row;
 	}
 
-}
-?>
+	public function productpage($limit, $offset){
+
+		$pagesql = "SELECT  * FROM products LEFT JOIN category ON products.category_id = category.category_id LEFT JOIN manufacturers ON manufacturers.manufacturer_id = products.manufacturer_id limit   $limit offset $offset";
+
+		if($result = $this->proddb->dbconect->query($pagesql)){
+
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+
+		}else{
+			echo "Oops!".$this->proddb->dbconect->error;
+		}
+		return $row;
+	} 
+
+	//function to display the manufactures and quantity of stock available
+	public function fetchManufactures(){
+			$sql = "SELECT  sum(products.Product_unit) AS total, manufacturers.manufacturer_name FROM products LEFT JOIN manufacturers ON manufacturers.manufacturer_id = products.manufacturer_id GROUP By manufacturer_name";
+		$row= array();
+
+				//execute the query
+		$result = $this->proddb->dbconect->query($sql);
+		
+
+		if($this->proddb->dbconect->affected_rows>0){
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+		}else{
+
+		echo "Error: ".$this->proddb->dbconect->error;
+			
+		}
+		return $row;
+	}
+		//functions to display the categories with their sum
+		public function displayCategories(){
+			$sql = "SELECT  sum(products.Product_unit) AS 'total', category.category_name FROM products LEFT JOIN category ON category.category_id = products.category_id GROUP By category_name";
+		$row= array();
+
+				//execute the query
+		$result = $this->proddb->dbconect->query($sql);
+		
+
+		if($this->proddb->dbconect->affected_rows>0){
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+		}else{
+
+		echo "Error: ".$this->proddb->dbconect->error;
+			
+		}
+		return $row;
+	}
+
+
+
+	}
+	?>

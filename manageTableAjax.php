@@ -1,33 +1,12 @@
 <?php
-$pagetitle = "Add Product";
 include_once('adminheader.php');
-include_once('adminnavbar.php');
-include_once('admininfo.php'); 
-?>
-
-<div class="wrapper d-flex">
-			<!--sidebar-->
-<style type="text/css">
-	.display{
-		font-size:12px;
-	}
-	a{
-		text-decoration:none;
-		color:white; 
-	}
-
-</style>
-<?php
-include_once('sidebar.php'); 
-?>
-<div>
-<?php
+include_once('Cipherclass.php');
 $productobj = new Products();
 
-$products = $productobj->fetchAllProducts();
+$products = $productobj->productpage($_POST['limit'], $_POST['offset']);
 
-?>
-<div class="container-fluid">
+
+?>	
 	<div class="row mt-4">
 			
 		<span class="mt-2 badge bg-info text-white mr-3">PRODUCT VIEW</span>
@@ -88,19 +67,3 @@ $products = $productobj->fetchAllProducts();
 			</table>
 			
 </div>
-
-</div>
-
-</div>
-
-
-</div>
-</div>
-</div>
-<!--pagination script calling functions from pagination js-->
-<!-- jQuery -->
-<
-<?php
-include_once('adminfooter.php');
-
-?>
